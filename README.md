@@ -30,7 +30,7 @@ Remember the CV you made all those months ago? This week you will be building an
 
 ### API client
  - complete the `fetchFromGithub` method in `/server/lib/github-client.js` so that the **should retrieve user profile information** test passes
- - `/users/{username}/events/public` is a github endpoint that returns all a user's activity on github. Use this, and the documentation about event types https://developer.github.com/v3/activity/events/types/, to retrieve a list of a user's pull requests by adding a `getUserPullRequests` method to the github client. The **should retrieve user pull requests** test should pass
+ - `/users/{username}/events/public` is a github endpoint that returns all a user's activity on github. Use this, and the documentation about event types https://developer.github.com/v3/activity/events/types/, to add a `getUserPullRequests` method to the github client which retrieves a list of a user's pull requests. The **should retrieve user pull requests** test should pass.
 
 ### Controllers
  - Set up a cv controller that outputs your existing html cv, using handlebars templates
@@ -40,9 +40,11 @@ Remember the CV you made all those months ago? This week you will be building an
  - add error handling middleware to send a 404 if the user requests some url not supported by your app, or 503 error if anything goes wrong
 
 #### Questions to think about
- - Why haven't we written all the code so far in a single file?
+ - What approaches can you use to make it easier to work with complex data like the responses from the github API?
+ - Why haven't we written all the code in a single `app.js` file?
  - Why are we passing your github user name from the controller to the github client? Why don't we just 'hard code' it into the github client?
- - What's the difference between your controllers and middleware?
+ - How are controllers and middleware different? How are they similar?
+ 
 
 ### Extension tasks
  - use `?format=json` query string to send a json only response
