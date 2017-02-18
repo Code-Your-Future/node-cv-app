@@ -13,7 +13,7 @@ Remember the CV you made all those months ago? This week you will be building an
 * general recap and review
 * writing modular javascript (controllers)
 * request / response lifecycle (middleware)
-* calling apis from within node
+* calling APIs from a node application
 * async
 * templating
 * general JS tasks - controller logic
