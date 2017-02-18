@@ -1,29 +1,10 @@
 ### Morning!
 
-We've set up another repository for you to clone.
+We've set up another repository for you to clone (if you're curious or confused about all the boilerplate grab a mentor we've written for you. Soon you'll be setting up these applications from scratch so .
 
-Take a look at all the boilerplate we've written for you. Soon you'll be setting up these applications from scratch so if you're curious or confused about why some file is here, grab a mentor to ask them.
+## Goal
 
-## GOAL
-
-Remember the CV you made all those months ago? This week you will be building an updated version powered by Node.js. You will fetch data from a real-world API (the github API), perform some operations on that data, and then use it to populate handlebars templates. This should sound familiar, because you did a similar thing last week. Then you will deploy your CV to the internet.
-
-## CLASS TOPICS
-
-* general recap and review
-* writing modular javascript (controllers)
-* request / response lifecycle (middleware)
-* calling APIs from a node application
-* async
-* templating
-* general JS tasks - controller logic
-* Headers
-* params & query strings
-* deployment
-* testing code
-* rest
-* ci
-
+Remember the CV you made all those months ago? This week you will be building an updated version powered by Node.js. You will fetch data from a real-world API (the github API), perform some operations on that data, and then use it to populate handlebars templates (this should sound familiar, because you did a similar thing last week). Finally, you will deploy your CV to the internet.
 
 ## Practical tasks
 - Fork https://github.com/Code-Your-Future/node-cv-app
@@ -45,23 +26,10 @@ Remember the CV you made all those months ago? This week you will be building an
  - Why are we passing your github user name from the controller to the github client? Why don't we just 'hard code' it into the github client?
  - How are controllers and middleware different? How are they similar?
  
-
 ### Extension tasks
  - use `?format=json` query string to send a json only response
  - set up a user controller to send the same information, minus your CV, for any user. Try to minimise how much you copy and paste code - can some of the code you wrote be extracted into another shared module in your `/lib` directory
  - extend your error middleware to send a custom 404 response if a user is not found
 
-
-
-## CLASS TASKS
-
-* fork
-* add an initial route and an initial template to serve your current CV
-* make sure it passes linting
-* add a call to the github api and render the data into your cv
-* extract the code to a controller file - we need to understand the benefits of modular code
-* add display options with headers, params, query strings
-* add middleware to pick this information off the request and add it on the response
-* add a test or two
-* deploy to heroku
-* add other routes and views? /pulls /languages /activity /etc
+### Deploying to Heroku
+- follow the guide here to get your app running on a server: https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction (you can skip the 'prepare your app' section) 
