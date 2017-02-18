@@ -1,6 +1,6 @@
 ### Morning!
 
-We've set up another repository for you to clone (if you're curious or confused about all the boilerplate grab a mentor we've written for you. Soon you'll be setting up these applications from scratch so .
+We've set up another repository for you to clone (grab a mentor if you're curious or confused about all the boilerplate).
 
 ## Goal
 
