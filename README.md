@@ -22,11 +22,13 @@ Remember the CV you made all those months ago? This week you will be building an
 * deployment
 * testing code
 * rest
+* ci
 
 ## CLASS TASKS
 
 * fork
 * add an initial route and an initial template to serve your current CV
+* make sure it passes linting
 * add a call to the github api and render the data into your cv
 * extract the code to a controller file - we need to understand the benefits of modular code
 * add display options with headers, params, query strings
