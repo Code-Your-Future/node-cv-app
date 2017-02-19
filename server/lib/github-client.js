@@ -6,7 +6,7 @@ function fetchFromGithub (path) {
 }
 
 module.exports.getUserProfile = function (username) {
-	return fetchFromGithub('/users/' + username);
-}
+	return fetchFromGithub(`/users/${username}`);
+};
 
 // add a method to retrieve user pull requests here
