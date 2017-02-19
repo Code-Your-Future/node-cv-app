@@ -1,81 +1,42 @@
 const { expect } = require('chai');
 const request = require('supertest');
-const nock = require('nock');
-const cheerio = require('cheerio');
-const server = require('../../server/app.js');
+const proxyquire = require('proxyquire');
+const sinon = require('sinon');
 
-describe('CV serving app', () => {
-	it('should serve CV on the \'/\' route', () => {
-
-	})
-
-	it('should call the cyf-github api for extra data', () => {
-
-	})
-
-	it('should render extra data when provided a query param', () => {
-
-	})
+const cvControllerStub = sinon.stub();
+const app = proxyquire('../../server/app', {
+	'./controllers/cv-controller': cvControllerStub
 });
 
+const end2end = require('../../server/app');
 
-const githubClient = require('../../server/lib/github-client.js');
-
-describe('Github client', () => {
-	it('should retrieve user profile information', () => {
-		nock('http://cyf-github-api')
-      .get('/users/wheresrhys')
-      .reply(200, require('../fixtures/user.json'));
-     return githubClient.getUserProfile('wheresrhys')
-     	.then(user => {
-     		expect(user.login).to.equal('wheresrhys');
-     		expect(user.name).to.equal('Rhys Evans');
-     	})
-	})
-
-	it('should retrieve user pull requests', () => {
-		nock('http://cyf-github-api')
-      .get('/users/wheresrhys/events/public')
-      .reply(200, require('../fixtures/user.json'));
-    return githubClient.getUserPullRequests('wheresrhys')
-     	.then(prs => {
-     		expect(prs.length).to.equal(4);
-     		prs.forEach(event => {
-     			expect(event.type).to.equal('PullRequestEvent');
-     			expect(event.actor.login).to.equal('wheresrhys')
-     		})
-     	})
-	})
-
+describe('app.js', () => {
+	afterEach(() => cvControllerStub.reset());
+	it('should call the cv controller on the \'/\' route', () => {
+		return request(app)
+			.get('/')
+			.expect(() => expect(cvControllerStub.called).to.be.true);		
+	});
 });
 
-const controller = require('../../server/controllers/cv-controller');
-
-describe('CV controller', () => {
-	it('should do all the above, but in a different place', () => {
-
-	})
-})
-
-const middleware = require('../../server/middleware');
-
-describe('middleware', () => {
-
-	it('should add URL parameters to the response object', () => {
-
+describe('End-to-end', () => {	
+	it('should serve html on the \'/\' route', () => {
+		return request(end2end)
+			.get('/')
+			.expect(200)
+			.expect('Content-Type', /html/)
 	})
 
-	it('should add query parameters to the response object', () => {
-
+	it('should return json given the right query param', () => {
+		return request(end2end)
+			.get('/?format=json')
+			.expect(200)
+			.expect('Content-Type', /json/)
 	})
 
-
-	it('should add headers to the response object', () => {
-
+	it('should handle any other user on the \'/user/:name\' route', () => {
+		return request(end2end)
+			.get('/user/tj')
+			.expect(200)
 	})
-
-
-	it('should add cookies to the response object', () => {
-
-	})
-})
+});

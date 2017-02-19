@@ -2,7 +2,7 @@
   "name": "node-cv-app",
   "version": "0.0.1",
   "scripts": {
-    "test": "mocha ./test/**/*.spec.js",
+    "test": "mocha --recursive",
     "start": "nodemon ./server/app.js",
     "lint": "eslint .",
     "ci": "npm test && npm run lint"
@@ -17,6 +17,8 @@
     "eslint-plugin-react": "^6.10.0",
     "mocha": "^3.2.0",
     "nock": "^9.0.6",
+    "proxyquire": "^1.7.11",
+    "sinon": "^1.17.7",
     "supertest": "^3.0.0"
   },
   "dependencies": {
