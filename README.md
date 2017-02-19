@@ -30,6 +30,7 @@ Remember the CV you made all those months ago? This week you will be building an
 ### Extension tasks
  - use `?format=json` query string to send a json only response
  - set up a user controller to send the same information, minus your CV, for any user. Try to minimise how much you copy and paste code - can some of the code you wrote be extracted into another shared module in your `/lib` directory
+ - using the documentation, find some other interesting data from the github api to put in your CV. Use `Promise.all()` to wait for all your api calls to respond, and output all the data in your CV page
  - extend your error middleware to send a custom 404 response if a user is not found
 
 ### Deploying to Heroku
