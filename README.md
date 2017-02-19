@@ -49,6 +49,7 @@ Remember the CV you made all those months ago? This week you will be building an
   - Routes: `app.get()`, `app.post()` etc.
   - Route handling with Controllers
   - sending a response: `response.render()`, `response.json()`, `response.send()` etc.
+  - what are the `req` & `res` objects doing, really?
 - Requesting and using complex data from real-world APIs
   - doing async operations with callbacks and promises
   - useful methods for dealing with JS data structures
