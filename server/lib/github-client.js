@@ -1,12 +1,12 @@
 const host = 'http://cyf-github-api.herokuapp.com';
 const fetch = require('isomorphic-fetch');
 
-function fetchFromGithub (path) {
-	// write something that will fetch json information from github
+function fetchFromGithub(path) {
+  return fetch(`${host}${path}`)
+  .then(responce => responce.json());
 }
-
-module.exports.getUserProfile = function (username) {
-	return fetchFromGithub(`/users/${username}`);
+module.exports.getUserProfile = username => fetchFromGithub(`/users/${username}`);
+module.exports.getUserPullRequests = (username) => {
+  const pullRequestOnly = fetchFromGithub(`/users/${username}/events/public`);
+  return pullRequestOnly.then((pr => pr.filter(data => data.type.indexOf('PullRequestEvent') !== -1)));
 };
-
-// add a method to retrieve user pull requests here
