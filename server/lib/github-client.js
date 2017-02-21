@@ -6,7 +6,6 @@ function fetchFromGithub(path) {
   .then(responce => responce.json());
 }
 module.exports.getUserProfile = username => fetchFromGithub(`/users/${username}`);
-module.exports.getUserPullRequests = (username) => {
-  const pullRequestOnly = fetchFromGithub(`/users/${username}/events/public`);
-  return pullRequestOnly.then((pr => pr.filter(data => data.type.indexOf('PullRequestEvent') !== -1)));
-};
+module.exports.getUserPullRequests = username => fetchFromGithub(`/users/${username}/events/public`)
+  .then(events => events.filter(event => event.type.indexOf('PullRequestEvent') !== -1));
+
