@@ -1,0 +1,25 @@
+  .persInfo_Format{
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .small_Image{
+    height:150px;
+    width:100px;    
+  }
+  .formPosition{
+    margin: auto;
+    left:0;
+    position: absolute;
+    right:0;
+    top:15px;
+    width: 800px;
+  }
+  .imags{
+    height: 155px;
+    margin-left: 120px; 
+    padding-right:10px 
+    width: 150px;
+  }
+  .cvHeader{
+    display: flex;
+  }
