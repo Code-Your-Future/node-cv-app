@@ -1,6 +1,13 @@
 <div class="container">
-	<h1>my cv</h1>
-	<h2>{{code.name}}</h2>
-	<p>company: {{code.company}}</p>
-	<p>Email: {{code.email}}</p>
+  <div class="userProfile">
+    <h1>my cv</h1>
+    <h2>{{userProfile.name}}</h2>
+    <p>company: {{userProfile.company}}</p>
+    <p>Email: {{userProfile.email}}</p>
+  </div>
+  <ul class="pullRequest">
+    {{#each userPullRequests}}
+      <li>{{this.repo.name}}</li>
+    {{/each}}
+  </ul>
 </div>

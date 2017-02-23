@@ -12,10 +12,13 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, '../public')));
 
 // add your routes here :)
-app.get('/user/:name', (req, res) => {
+
+app.get('/users/:name', (req, res) => {
   const userName = req.params.name;
   cvController.getData(userName,res);
 });
+
+// app.get('/', cvController.getData);
 
 app.listen(4000);
 
