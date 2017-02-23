@@ -8,11 +8,10 @@ const hundleRequest = (name, res) => {
   .then((userData) => {
     const numberOfPullReq = userData[1].length;
     res.render('myCv', { actual: userData[0], numberPullRequest: numberOfPullReq });
-  });
+  }).catch(reason => console.log('Promise rejected : ', reason));
 };
 
-module.exports.userProfile = (req, res) => {
+module.exports.route1 = (req, res) => {
   const name = req.query.name;
   hundleRequest(`${name}`, res);
 };
-
