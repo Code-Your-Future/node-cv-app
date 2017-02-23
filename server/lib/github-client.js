@@ -1,9 +1,9 @@
-const host = 'http://cyf-github-api.herokuapp.com';
 const fetch = require('isomorphic-fetch');
+const gitApi = 'https://api.github.com';
 
 fetchFromGithub = path => {
   return (
-    fetch(`${host}${path}`)
+    fetch(`${gitApi}${path}`)
     .then(apiRes => apiRes.json())
     .then(json => json)
     .catch(err => console.error(err))
