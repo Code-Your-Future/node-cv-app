@@ -10,11 +10,14 @@ fetchFromGithub = path => {
     );
 }
 
-module.exports.getUserProfile = username => fetchFromGithub(`/users/${username}`);
+filterByEventType = (data, eventType) => data.filter(value => value.type === eventType);
 
-module.exports.getUserPullRequests = username => {
+module.exports = {
+  getUserProfile: username => fetchFromGithub(`/users/${username}`),
+  getUserPullRequests: username => {
   return (
     fetchFromGithub(`/users/${username}/events/public`)
-    .then(data => data.filter(value => value.type === 'PullRequestEvent'))
+    .then(data => filterByEventType(data, 'PullRequestEvent'))
     );
-};
+  }
+}
