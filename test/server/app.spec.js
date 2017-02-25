@@ -12,7 +12,7 @@ const end2end = require('../../server/app');
 
 describe('app.js', () => {
 	afterEach(() => cvControllerStub.reset());
-	it('should call the cv controller on the \'/\' route', () => {
+	it.only('should call the cv controller on the \'/\' route', () => {
 		return request(app)
 			.get('/')
 			.expect(() => expect(cvControllerStub.called).to.be.true);		

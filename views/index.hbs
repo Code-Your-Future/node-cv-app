@@ -1,0 +1,32 @@
+<div class ="cv">
+	<h3>{{code.name}}<h3>
+	<h4>{{code.location}}</h4>
+	<h3>{{code.type}}</h3>
+	
+		<h1 class="text-bolds"> Ansi John Britto</h1>
+		<img src="http://www.hdwallpapers.in/walls/maltese_puppy-wide.jpg" alt="Cute Puppy" style="width:200px;height:150px;">
+		<h2 class="text-personalinfo">Personal Information</h2>
+		<ul>
+			<li><b>Address:</b> Flat 13, Byron Court,London, E11 1UT</li> 
+			<li><b>Contact No:</b> 07456635539</li>
+			<li><b>Email id:</b> arockiaansi@gmail.com</li>
+		</ul>
+		<h2 class="text-personalinfo">Skills</h2>
+		<ul>
+			<li>Good Leadership skills</li>
+			<li>Communication skills</li>
+			<li>Punctuaity</li>
+		</ul>
+		<h2 class="text-personalinfo">Experience</h2>
+		<ul>
+			<li>Admin Assistant @ Camden Community Law Centre: October 2013 – March 2016</li>
+			<li>Website Editor @ East London Vision Trust: September 2013 – July 2014</li>
+			<li>Admin Assistant @ Brainbox Education Ltd: August 2013 – July 2014</li>
+	</ul>
+</div>
+
+<div class="pullRequest">
+    {{#each content}}
+      <h4>{{this.repo.url}}</h4>
+    {{/each}}
+</div>
