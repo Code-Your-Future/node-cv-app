@@ -5,13 +5,13 @@ function fetchingData(username, res) {
 	const userProfile = client.getUserProfile(username);
 	const PullRequest = client.getUserPullRequests(username);
 	return Promise.all([userProfile, PullRequest])
-  .then((data) =>{
+  .then((data
+  	) =>{
   	console.log(data);
-    return res.render('index', {code:data[0], code:data[1]});
+    return res.render('index', {code:data[0], codes:data[1][0]});
   }).catch(err => {
     console.log('Not retriving Data');
   })
-  // 
 }
 
 module.exports = (req, res) => {
