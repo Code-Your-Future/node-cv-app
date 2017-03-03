@@ -4,7 +4,7 @@ const fetch = require('isomorphic-fetch');
 
 function fetchFromGithub (path) {
         console.log(`${host}${path}`);
-    	const promiseOfGithubData = fetch(`${host}${path}`)
+      const promiseOfGithubData = fetch(`${host}${path}`)
         .then(function(response) {
             return response.json();
         })
@@ -21,6 +21,5 @@ module.exports.getUserProfile = function (username) {
 
 module.exports.getUserPullRequests = function (username) {
       return fetchFromGithub(`/users/${username}/events/public`)
-      	.then((response)=> response.filter(event=>event.type==="PullRequestEvent"));
+        .then((response)=> response.filter(event=>event.type==="PullRequestEvent"));
 };
-

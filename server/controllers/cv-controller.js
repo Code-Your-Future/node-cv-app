@@ -6,7 +6,7 @@ function fetchingData(username, res) {
   
   return Promise.all([userProfile, PullRequest])
   .then(([code,content]) =>{
-      console.log(code,content);
+      //console.log(code,content);
       return res.render('index',{code,content});
     }
   )
